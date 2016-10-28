@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="es.timmp.indicadoresfx.test.FXMLGraficoController">
+   <children>
+      <AnchorPane fx:id="grafico" layoutX="17.0" layoutY="27.0" prefHeight="332.0" prefWidth="345.0" AnchorPane.bottomAnchor="41.0" AnchorPane.leftAnchor="17.0" AnchorPane.rightAnchor="238.0" AnchorPane.topAnchor="27.0" />
+      <Slider fx:id="value" layoutX="496.0" layoutY="47.0" orientation="VERTICAL" prefHeight="273.0" prefWidth="14.0" AnchorPane.rightAnchor="32.0" />
+      <Slider fx:id="max" layoutX="512.0" layoutY="47.0" orientation="VERTICAL" prefHeight="273.0" prefWidth="14.0" AnchorPane.rightAnchor="74.0" />
+   </children>
+</AnchorPane>
