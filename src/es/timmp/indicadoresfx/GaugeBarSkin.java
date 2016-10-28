@@ -77,9 +77,6 @@ public class GaugeBarSkin implements Skin<GaugeBar> {
      */
     protected void redraw() {
         
-        
-        
-        
         List<Node> rootChildren = new ArrayList<Node>();
         rootChildren.add(createGauge());
         rootChildren.add(createSeccion());
@@ -87,6 +84,7 @@ public class GaugeBarSkin implements Skin<GaugeBar> {
         rootChildren.add(createValue());
         rootChildren.add(createTitle());
         this.rootNode.getChildren().setAll(rootChildren);
+        
     }
 
     @Override
@@ -176,7 +174,8 @@ public class GaugeBarSkin implements Skin<GaugeBar> {
         Number resta = (getSkinnable().getSize()*(GAUGE_MAX_SIZE-0.15));
         
         int value = (getSkinnable().getValue()<getSkinnable().getMinValue()
-                ?getSkinnable().getMinValue():getSkinnable().getValue())
+                ?getSkinnable().getMinValue():
+                getSkinnable().getValue()>getSkinnable().getMaxValue()?getSkinnable().getMaxValue():getSkinnable().getValue())
                 -getSkinnable().getMinValue();
         
         float arcBlendDegrees = ((float) value
@@ -191,11 +190,13 @@ public class GaugeBarSkin implements Skin<GaugeBar> {
 
         resta = (getSkinnable().getSize()*(GAUGE_MAX_SIZE-0.05));
         
-         int memorivalue = (getSkinnable().getMemoriValue()<getSkinnable().getMinValue()
-                ?getSkinnable().getMinValue():getSkinnable().getMemoriValue())
+        int memorivalue =(getSkinnable().getMemoriValue()<getSkinnable().getMinValue()
+                ?getSkinnable().getMinValue():
+                getSkinnable().getMemoriValue()>getSkinnable().getMaxValue()?getSkinnable().getMaxValue():getSkinnable().getMemoriValue())
                 -getSkinnable().getMinValue();
+        
         float arcBlendMax = ((float) memorivalue 
-                / getSkinnable().getMaxValue()) * 360;
+                / (getSkinnable().getMaxValue()  -getSkinnable().getMinValue())) * 360;
         
         Arc arcBlend2 = new Arc(getSkinnable().getSize(), getSkinnable().getSize(),
                 getSkinnable().getSize() -resta.intValue(), getSkinnable().getSize() -resta.intValue(),
@@ -215,9 +216,6 @@ public class GaugeBarSkin implements Skin<GaugeBar> {
 
     private Node createValue() {
         Group group = new Group();
-        
-        
-        
         Text tx_value = new Text(0,getSkinnable().getSize()*1.15,
                 String.valueOf(getSkinnable().getValue()));
         tx_value.setWrappingWidth(getSkinnable().getSize()*2);

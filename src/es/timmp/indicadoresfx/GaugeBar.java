@@ -154,10 +154,7 @@ public class GaugeBar extends Control {
     }
 
     public void setValue(int value) {
-        if (this.maxValue < value) {
-            throw new IllegalArgumentException("Value must be smaller than max value!");
-        }
-        
+       
         this.value = value;
         fireEvent(new Event(Integer.valueOf(value), this, EVENT_TYPE_REDRAW));
     }
