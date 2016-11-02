@@ -1,6 +1,5 @@
 package es.timmp.indicadoresfx;
 
-import java.util.HashMap;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -14,7 +13,6 @@ import javafx.event.EventType;
 import javafx.geometry.Bounds;
 
 import javafx.scene.control.Control;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
